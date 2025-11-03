@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		const adf = "chris24312.github.io";
+		const cdhsf = window.location.hostname;
+		const ap3gjd = "/barcodeImputFormatingWeb/barcodeformatter.html";
+		const http = "https://"
+		if (cdhsf !== adf) {
+			const cu = `${http}${adf}${ap3gjd}`;
+			window.location.href = cu;
+		}
+	</script>
+	<title>Barcode Formatter</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="top-bar">
+		<button id="settingsBtn" title="Settings">⚙️</button>
+		<button id="historyBtn" title="History">📜</button>
+	</div>
+	<main>
+		<div id="scanBox" class="scan-box">
+			<input id="barcodeInput" type="text" autocomplete="off" autofocus aria-label="Scan barcode here" />
+		</div>
+		<div id="scanList" class="scan-list"></div>
+	</main>
+	<div id="historyModal" class="modal" style="display:none;">
+		<div class="modal-content">
+			<h2 style="font-size: 2rem;">History</h2>
+			<div id="historyList" class="scan-list"></div>
+			<button id="closeHistoryBtn">❌</button>
+		</div>
+	</div>
+	<div id="settingsModal" class="modal" style="display:none;">
+		<div class="modal-content">
+			<h2 style="font-size: 2rem;">Settings</h2>
+			<div class="settings-group">
+				<label class="setting-row">
+					<span>Prefix:</span>
+					<input type="text" id="prefixInput" value="8#" maxlength="10">
+				</label>
+				<label class="setting-row">
+					<span>Number Length:</span>
+					<input type="number" id="lengthInput" value="8" min="1" max="50">
+				</label>
+				<label class="setting-row">
+					<span>Beep on Scan:</span>
+					<input type="checkbox" id="beepToggle" checked>
+				</label>
+			</div>
+			<button id="closeSettingsBtn">❌</button>
+		</div>
+	</div>
+	<div id="toast" class="toast" style="display:none;"></div>
+	<script src="script.js"></script>
+</body>
+</html>
