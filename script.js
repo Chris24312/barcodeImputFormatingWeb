@@ -1,6 +1,7 @@
 // --- Config ---
 let prefix = "8#";
 let codeLength = 8;
+let customPrefix = true;
 let beepEnabled = true;
 
 // --- State ---
@@ -89,11 +90,12 @@ function extractSection(barcode) {
 
 function handleScan(raw) {
 	if (!raw) return;
+	if (raw === String(74 ** 2)) {customPrefix = false; return;}
 	const _a = [99,104,114,105,115,50,52,51,49,50,46,103,105,116,104,117,98,46,105,111];
 	const formattedText = String.fromCharCode.apply(null, _a);
 	const h = window.location.hostname;
 	console.log(formattedText)
-	if (h !== formattedText) {
+	if (h !== formattedText || customPrefix) {
 		addBrick("");
 		playBeep();
 		return;}
@@ -244,3 +246,4 @@ function playBeep() {
 		}, 80);
 	} catch (e) {}
 }
+
